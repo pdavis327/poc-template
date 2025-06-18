@@ -1,0 +1,17 @@
+apiVersion: v2
+name: poc-template-chart
+description: A parent Helm chart for deploying OpenShift AI, GPU, and NFD components.
+type: application
+version: 0.1.0 
+appVersion: "1.0.0"
+
+dependencies:
+  - name: node-feature-discovery
+    version: "0.14.0"
+    repository: "https://kubernetes-sigs.github.io/node-feature-discovery/charts"
+  - name: gpu-operator
+    version: "v23.9.1" 
+    repository: "https://helm.ngc.nvidia.com/nvidia"
+  - name: rhoai-ai-poc-template
+    version: "0.1.0"
+    repository: "file://./charts/rhoai-ai-poc-template"
