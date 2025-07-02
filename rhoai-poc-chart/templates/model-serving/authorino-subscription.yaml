@@ -3,14 +3,9 @@ kind: Subscription
 metadata:
   name: authorino-operator
   namespace: openshift-operators
-  annotations:
-    helm.sh/hook: pre-install
-    helm.sh/hook-weight: "30" 
-    helm.sh/hook-delete-policy: before-hook-creation
 spec:
   channel: stable
   installPlanApproval: Automatic
   name: authorino-operator
-  source: redhat-operators
+  source: community-operators
   sourceNamespace: openshift-marketplace
-

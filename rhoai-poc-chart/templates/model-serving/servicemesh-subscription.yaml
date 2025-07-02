@@ -3,10 +3,6 @@ kind: Subscription
 metadata:
   name: servicemeshoperator
   namespace: openshift-operators
-  annotations:
-    helm.sh/hook: pre-install
-    helm.sh/hook-weight: "21"
-    helm.sh/hook-delete-policy: before-hook-creation
 spec:
   channel: stable
   installPlanApproval: Automatic

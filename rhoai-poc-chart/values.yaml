@@ -1,2 +1,2 @@
-# Root chart values - sub-chart configurations handled in their respective values.yaml files
-# Override sub-chart values via --set flags or add external dependency overrides here as needed
+gpuReplicas: 2
+gpuTypeAws: g4dn.xlarge

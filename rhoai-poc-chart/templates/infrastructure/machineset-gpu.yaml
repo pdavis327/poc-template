@@ -7,22 +7,22 @@ metadata:
     machine.openshift.io/memoryMb: "65536"
     machine.openshift.io/vCPU: "16"
   labels:
-    machine.openshift.io/cluster-api-cluster: cluster-v4kj7-s57hm
-  name: cluster-v4kj7-s57hm-worker-us-east-2a-gpu
+    machine.openshift.io/cluster-api-cluster: cluster-l7p6s-jmcmt
+  name: cluster-l7p6s-jmcmt-worker-us-east-2b-gpu
   namespace: openshift-machine-api
 spec:
-  replicas: {{.Values.GPU_REPLICAS}}
+  replicas: 1
   selector:
     matchLabels:
-      machine.openshift.io/cluster-api-cluster: cluster-v4kj7-s57hm
-      machine.openshift.io/cluster-api-machineset: cluster-v4kj7-s57hm-worker-us-east-2a-gpu
+      machine.openshift.io/cluster-api-cluster: cluster-l7p6s-jmcmt
+      machine.openshift.io/cluster-api-machineset: cluster-l7p6s-jmcmt-worker-us-east-2b-gpu
   template:
     metadata:
       labels:
-        machine.openshift.io/cluster-api-cluster: cluster-v4kj7-s57hm
+        machine.openshift.io/cluster-api-cluster: cluster-l7p6s-jmcmt
         machine.openshift.io/cluster-api-machine-role: worker
         machine.openshift.io/cluster-api-machine-type: worker
-        machine.openshift.io/cluster-api-machineset: cluster-v4kj7-s57hm-worker-us-east-2a-gpu
+        machine.openshift.io/cluster-api-machineset: cluster-l7p6s-jmcmt-worker-us-east-2b-gpu
     spec:
       lifecycleHooks: {}
       metadata: {}
@@ -44,42 +44,42 @@ spec:
             name: aws-cloud-credentials
           deviceIndex: 0
           iamInstanceProfile:
-            id: cluster-v4kj7-s57hm-worker-profile
-          instanceType: {{.Values.GPU_TYPE_AWS}}
+            id: cluster-l7p6s-jmcmt-worker-profile
+          instanceType: g4dn.xlarge
           kind: AWSMachineProviderConfig
           metadata:
           metadataServiceOptions: {}
           placement:
-            availabilityZone: us-east-2a
+            availabilityZone: us-east-2b
             region: us-east-2
           securityGroups:
           - filters:
             - name: tag:Name
               values:
-              - cluster-v4kj7-s57hm-node
+              - cluster-l7p6s-jmcmt-node
           - filters:
             - name: tag:Name
               values:
-              - cluster-v4kj7-s57hm-lb
+              - cluster-l7p6s-jmcmt-lb
           subnet:
             filters:
             - name: tag:Name
               values:
-              - cluster-v4kj7-s57hm-subnet-private-us-east-2a
+              - cluster-l7p6s-jmcmt-subnet-private-us-east-2b
           tags:
-          - name: kubernetes.io/cluster/cluster-v4kj7-s57hm
+          - name: kubernetes.io/cluster/cluster-l7p6s-jmcmt
             value: owned
           - name: Stack
-            value: project ocp4-cluster-v4kj7
+            value: project ocp4-cluster-l7p6s
           - name: env_type
             value: ocp4-cluster
           - name: guid
-            value: v4kj7
+            value: l7p6s
           - name: owner
             value: unknown
           - name: platform
             value: RHPDS
           - name: uuid
-            value: 76686fe7-f2e6-5487-9077-d5243728b0d2
+            value: 5bbd39ff-95f6-50f0-b2dd-054c8d78ba26
           userDataSecret:
             name: worker-user-data
