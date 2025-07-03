@@ -1,8 +1,1 @@
- helm install rhoai-poc-chart . --wait --dependency-update \
-   --set rhoai-ai-poc-template.GPU_REPLICAS=1 \
-   --set rhoai-ai-poc-template.GPU_TYPE_AWS=g4dn.4xlarge
-
- helm upgrade --install rhoai-poc-chart . --wait --dependency-update 
-
- oc delete csv authorino-operator.v1.2.2 -n openshift-operators
- oc delete sub authorino-operator -n openshift-operators
+1. create machineset resource with shell script
